@@ -25,17 +25,44 @@ function getPlayerMove(move) {
     // Write an expression that operates on a variable called `move`
     // If a `move` has a value, your expression should evaluate to that value.
     // However, if `move` is not specified / is null, your expression should equal `getInput()`.
-    return var move;
-    move = getInput();
+        return /* Your Expression*/  move?move:getInput();
 }
-
+/*Or if you were to comment out the above statement: (return \/* Your Expression*\/  move?move:getInput();
+}) the switch statement below would work.
+*/
+/*
+    switch (move) {
+        case move = "rock":
+             return "rock";
+        case move = "paper":
+            return "paper";
+        case move = "scissors":
+            return "scissors";
+        default:
+            return getInput();
+    }
+}
+*/
 function getComputerMove(move) {
     // Write an expression that operates on a variable called `move`
     // If a `move` has a value, your expression should evaluate to that value.
     // However, if `move` is not specified / is null, your expression should equal `randomPlay()`.
-    return var move;
-    move = randomPlay();
+    return /* Your Expression */move?move:randomPlay();
 }
+/* Or switch statement below could be used in lieu of return expression above: */
+/*
+switch (move) {
+        case move = "rock":
+             return "rock";
+        case move = "paper":
+            return "paper";
+        case move = "scissors":
+            return "scissors";
+        default:
+            return randomPlay();
+    }
+}
+*/
 
 function getWinner(playerMove,computerMove) {
     var winner;
@@ -43,6 +70,33 @@ function getWinner(playerMove,computerMove) {
     // Assume that the only values playerMove and computerMove can have are 'rock', 'paper', and 'scissors'.
     // The rules of the game are that 'rock' beats 'scissors', 'scissors' beats 'paper', and 'paper' beats 'rock'.
     /* YOUR CODE HERE */
+        if (playerMove === computerMove) {
+        winner = "tie";
+    }
+    else if (playerMove === "paper") {
+        if (computerMove === "scissors") {
+            winner = "computer";
+        }
+        else {
+            winner = "player";
+        }
+    }
+    else if (playerMove === "rock") {
+        if (computerMove === "scissors") {
+            winner = "player";
+        }
+        else {
+            winner = "computer";
+        }
+    }
+    else if (playerMove === "scissors") {
+        if (computerMove === "rock") {
+            winner = "computer";
+        }
+        else {
+            winner = "player";
+        }
+    }
     return winner;
 }
 
